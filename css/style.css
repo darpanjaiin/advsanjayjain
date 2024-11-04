@@ -1,10 +1,10 @@
 :root {
     --gradient-bg: linear-gradient(135deg, 
         #000000 0%,
-        #1A1A2E 25%,
-        #2B1B3B 50%,
-        #351B47 75%,
-        #1E1E3F 100%
+        #090914 25%,
+        #100a16 50%,
+        #120918 75%,
+        #0c0c18 100%
     );
     --color-white: #ffffff;
     --font-primary: 'Inter', sans-serif;
@@ -1310,19 +1310,37 @@ body {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
 
 .modal-content {
     background: linear-gradient(135deg, #1A1A2E 0%, #2B1B3B 100%);
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: auto; /* Center the modal */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 600px; /* Max width */
+    width: 90%; /* Adjust width for landscape */
+    max-width: 600px; /* Max width for landscape */
+    height: auto; /* Set height to auto */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    position: absolute; /* Position absolute for centering */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Perfect centering */
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Space below buttons */
+}
+
+.modal-buttons .contact-button {
+    flex: 1; /* Make buttons equal width */
+    margin-right: 10px; /* Space between buttons */
+}
+
+.modal-buttons .contact-button:last-child {
+    margin-right: 0; /* Remove margin for the last button */
 }
 
 .close-modal {
@@ -1348,6 +1366,12 @@ body {
     margin-bottom: 1rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Space above buttons */
 }
 
 /* Update footer credit link color */
@@ -1650,4 +1674,35 @@ body::before {
     .form-group label {
         font-size: 14px;
     }
+}
+
+/* Decline Page Styles */
+.decline-message {
+    text-align: center;
+    padding: 50px;
+    background: var(--gradient-bg);
+    color: var(--color-white);
+}
+
+.decline-message h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.decline-message p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.decline-message .contact-button {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.decline-message .contact-button:hover {
+    background: rgba(255, 255, 255, 0.2);
 }

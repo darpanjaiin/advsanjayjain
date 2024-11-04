@@ -1,31 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const disclaimerLink = document.getElementById('disclaimer-link');
     const disclaimerModal = document.getElementById('disclaimer-modal');
-    const closeModal = document.querySelector('.close-modal');
+    const acceptButton = document.getElementById('accept-disclaimer');
+    const declineButton = document.getElementById('decline-disclaimer');
 
-    disclaimerLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        disclaimerModal.style.position = 'fixed';
-        disclaimerModal.style.top = '50%';
-        disclaimerModal.style.left = '50%';
-        disclaimerModal.style.transform = 'translate(-50%, -50%)';
-        disclaimerModal.style.zIndex = '9999';
-        disclaimerModal.style.display = 'block';
+    // Show modal automatically when page loads
+    disclaimerModal.style.display = 'block'; // Show the modal
+
+    // Accept button functionality
+    acceptButton.addEventListener('click', function() {
+        setCookie('disclaimerAccepted', 'true', 30); // Set cookie for 30 days
+        disclaimerModal.style.display = 'none'; // Hide the modal
     });
 
-    closeModal.addEventListener('click', function() {
-        disclaimerModal.style.display = 'none';
+    // Decline button functionality
+    declineButton.addEventListener('click', function() {
+        window.location.href = 'decline.html'; // Redirect to the decline page
     });
+});
 
-    window.addEventListener('click', function(e) {
-        if (e.target === disclaimerModal) {
-            disclaimerModal.style.display = 'none';
-        }
-    });
+// Cookie management functions
+function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && disclaimerModal.style.display === 'block') {
-            disclaimerModal.style.display = 'none';
-        }
-    });
-}); 
+function getCookie(name) {
+    return document.cookie.split('; ').reduce((r, c) => {
+        const [key, val] = c.split('=');
+        return key === name ? decodeURIComponent(val) : r;
+    }, '');
+} 
