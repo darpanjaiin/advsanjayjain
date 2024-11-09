@@ -1,8 +1,8 @@
 export const SEOConfig = {
-    defaultTitle: 'Your Brand Name - Primary Keyword',
-    defaultDescription: 'Your compelling brand description with primary and secondary keywords',
-    siteName: 'Your Brand Name',
-    baseUrl: 'https://yourdomain.com',
+    defaultTitle: 'Adv Sanjay Jain | Property & Legal Expert in Pune',
+    defaultDescription: 'Property lawyer in Pune, agreement drafting & registration, cooperative housing society, title transfer, cheque bounce cases',
+    siteName: 'Adv Sanjay Jain',
+    baseUrl: 'https://advsanjayjain.in',
 };
 
 export const generateMetaTags = (pageData) => {

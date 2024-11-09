@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['yourdomain.com'],
+        domains: ['advsanjayjain.in'],
         formats: ['image/avif', 'image/webp'],
         deviceSizes: [320, 640, 768, 1024, 1366, 1600],
     },
